@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Daily Smash — Archives</title>
+<meta name="description" content="Every edition of The Daily Smash. One badminton net. Eleven suspects. A complete timeline.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,600&family=Inter:wght@400;500;600;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4efe3;
+  --card:#fffdf7;
+  --ink:#1b1916;
+  --muted:#6b6459;
+  --line:#ddd5c4;
+  --red:#a4231b;
+  --green:#1e6b3a;
+  --gold:#b5892a;
+  --shadow:0 2px 4px rgba(30,24,14,.05), 0 12px 32px rgba(30,24,14,.08);
+  --radius:14px;
+}
+:root:not([data-theme="light"]) {
+  @media (prefers-color-scheme: dark){
+    --paper:#15130f;
+    --card:#1e1b16;
+    --ink:#f0ebe0;
+    --muted:#a39c8e;
+    --line:#332e26;
+    --red:#e8766b;
+    --green:#67c38d;
+    --gold:#e0b659;
+    --shadow:0 2px 4px rgba(0,0,0,.3), 0 12px 32px rgba(0,0,0,.4);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#15130f;
+  --card:#1e1b16;
+  --ink:#f0ebe0;
+  --muted:#a39c8e;
+  --line:#332e26;
+  --red:#e8766b;
+  --green:#67c38d;
+  --gold:#e0b659;
+  --shadow:0 2px 4px rgba(0,0,0,.3), 0 12px 32px rgba(0,0,0,.4);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--paper);color:var(--ink);
+  font-family:'Inter',system-ui,sans-serif;
+  font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+.wrap{max-width:1040px;margin:0 auto;padding:0 16px;}
+
+/* ---------- top bar ---------- */
+.topbar{
+  position:sticky;top:0;z-index:50;
+  background:color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.topbar .inner{max-width:1040px;margin:0 auto;padding:10px 16px;
+  display:flex;align-items:center;gap:14px;}
+.brand{font-family:'Playfair Display',serif;font-weight:900;font-size:17px;letter-spacing:-.3px;white-space:nowrap;}
+.brand span{color:var(--red);}
+.navlinks{margin-left:auto;display:flex;gap:4px;align-items:center;}
+.navlinks a{
+  color:var(--muted);text-decoration:none;font-size:13px;font-weight:500;
+  padding:6px 10px;border-radius:8px;white-space:nowrap;
+}
+.navlinks a:hover{color:var(--ink);background:color-mix(in srgb,var(--ink) 6%,transparent);}
+.themebtn{
+  background:none;border:1px solid var(--line);color:var(--muted);
+  width:32px;height:32px;border-radius:9px;cursor:pointer;font-size:14px;
+  display:grid;place-items:center;flex:none;
+}
+.themebtn:hover{color:var(--ink);border-color:var(--ink);}
+@media(max-width:700px){ .navlinks a[data-opt]{display:none;} }
+
+/* ---------- hero ---------- */
+.hero{padding:60px 0 32px;text-align:center;position:relative;}
+.hero::before{
+  content:"";position:absolute;inset:-40px 0 0;z-index:-1;
+  background:radial-gradient(60% 70% at 50% 0%, color-mix(in srgb,var(--red) 10%,transparent), transparent 70%);
+}
+.eyebrow{
+  font-size:11px;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--red);font-weight:600;margin-bottom:14px;
+}
+.hero h1{
+  font-family:'Playfair Display',serif;font-weight:900;
+  font-size:clamp(38px,8vw,76px);line-height:.98;letter-spacing:-1.5px;margin-bottom:16px;
+}
+.hero h1 em{font-style:italic;color:var(--red);}
+.hero p{
+  max-width:580px;margin:0 auto 10px;color:var(--muted);font-size:17px;
+}
+.scrawl{
+  font-family:'Caveat',cursive;font-size:22px;color:var(--ink);
+  opacity:.75;transform:rotate(-1.2deg);display:inline-block;margin-top:6px;
+}
+
+/* ---------- stats ---------- */
+.stats{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
+  gap:10px;margin:36px 0 10px;
+}
+.stat{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:16px 14px;text-align:center;
+}
+.stat b{
+  display:block;font-family:'Playfair Display',serif;font-weight:900;
+  font-size:30px;line-height:1;color:var(--red);margin-bottom:5px;
+}
+.stat span{font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:500;}
+
+/* ---------- sections ---------- */
+section{padding:56px 0 8px;}
+.shead{margin-bottom:22px;}
+.shead h2{
+  font-family:'Playfair Display',serif;font-weight:900;
+  font-size:clamp(26px,4.5vw,38px);line-height:1.1;letter-spacing:-.6px;
+}
+.shead p{color:var(--muted);margin-top:6px;font-size:15px;max-width:620px;}
+
+/* ---------- filters ---------- */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px;}
+.chip{
+  background:var(--card);border:1px solid var(--line);color:var(--muted);
+  padding:7px 14px;border-radius:999px;font-size:13px;font-weight:500;
+  cursor:pointer;transition:all .15s;font-family:inherit;
+}
+.chip:hover{color:var(--ink);border-color:color-mix(in srgb,var(--ink) 30%,transparent);}
+.chip[aria-pressed="true"]{
+  background:var(--ink);color:var(--paper);border-color:var(--ink);
+}
+
+/* ---------- timeline ---------- */
+.timeline{position:relative;padding-left:30px;}
+.timeline::before{
+  content:"";position:absolute;left:8px;top:6px;bottom:6px;width:2px;
+  background:linear-gradient(var(--line),var(--line));
+}
+.ev{
+  position:relative;margin-bottom:18px;
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:18px 20px;box-shadow:var(--shadow);
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+.ev:hover{transform:translateY(-2px);box-shadow:0 4px 8px rgba(30,24,14,.07),0 18px 40px rgba(30,24,14,.11);}
+.ev::before{
+  content:"";position:absolute;left:-26px;top:24px;
+  width:11px;height:11px;border-radius:50%;
+  background:var(--paper);border:2.5px solid var(--red);
+}
+.ev.big::before{background:var(--red);box-shadow:0 0 0 4px color-mix(in srgb,var(--red) 18%,transparent);}
+.ev-top{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:8px;}
+.date{
+  font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--red);
+}
+.tag{
+  font-size:10.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:2px 9px;
+}
+.edno{margin-left:auto;font-size:11px;color:var(--muted);opacity:.8;font-variant-numeric:tabular-nums;}
+.ev h3{
+  font-family:'Playfair Display',serif;font-weight:700;
+  font-size:19.5px;line-height:1.25;margin-bottom:7px;letter-spacing:-.2px;
+}
+.ev p{color:var(--muted);font-size:14.6px;line-height:1.62;}
+.ev p + p{margin-top:8px;}
+.ev .quote{
+  font-family:'Playfair Display',serif;font-style:italic;font-weight:600;
+  color:var(--red);font-size:15.5px;line-height:1.4;
+  border-left:3px solid var(--red);padding:2px 0 2px 13px;margin:11px 0 3px;
+}
+.ev figure{margin:13px 0 2px;}
+.ev img{
+  width:100%;max-width:400px;display:block;border-radius:10px;
+  border:1px solid var(--line);
+}
+.ev figcaption{
+  font-family:'Caveat',cursive;font-size:17px;color:var(--muted);
+  margin-top:6px;transform:rotate(-.5deg);
+}
+.era{
+  margin:34px 0 20px;position:relative;
+}
+.era span{
+  font-family:'Inter',sans-serif;font-size:11px;font-weight:700;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--paper);
+  background:var(--ink);padding:5px 13px;border-radius:999px;
+}
+.era::before{
+  content:"";position:absolute;left:-26px;top:50%;width:11px;height:11px;
+  border-radius:3px;background:var(--ink);transform:translateY(-50%) rotate(45deg);
+}
+
+/* ---------- cast ---------- */
+.cast{display:grid;grid-template-columns:repeat(auto-fill,minmax(228px,1fr));gap:12px;}
+.person{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:16px 17px;
+}
+.person .nm{
+  font-family:'Playfair Display',serif;font-weight:700;font-size:18px;margin-bottom:2px;
+}
+.person .role{
+  font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--red);font-weight:600;margin-bottom:8px;
+}
+.person p{font-size:13.6px;color:var(--muted);line-height:1.55;}
+.person .line{
+  font-family:'Caveat',cursive;font-size:17px;color:var(--ink);opacity:.8;margin-top:9px;
+}
+
+/* ---------- records ---------- */
+.records{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;}
+.rec{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px;
+}
+.rec b{
+  display:block;font-family:'Playfair Display',serif;font-weight:900;font-size:27px;
+  color:var(--gold);line-height:1;margin-bottom:6px;
+}
+.rec .t{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink);font-weight:600;margin-bottom:4px;}
+.rec p{font-size:13.2px;color:var(--muted);line-height:1.5;}
+
+/* ---------- laws ---------- */
+.laws{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;}
+.law{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:15px 17px;display:flex;gap:12px;
+}
+.law .n{
+  font-family:'Playfair Display',serif;font-weight:900;font-size:21px;color:var(--red);
+  line-height:1;flex:none;opacity:.8;
+}
+.law b{display:block;font-size:14.5px;margin-bottom:3px;}
+.law p{font-size:13.2px;color:var(--muted);line-height:1.5;}
+
+/* ---------- next ---------- */
+.next{
+  background:var(--card);border:2px dashed var(--line);border-radius:var(--radius);
+  padding:20px 22px;
+}
+.next .row{display:flex;gap:14px;padding:10px 0;border-bottom:1px solid var(--line);}
+.next .row:last-child{border-bottom:none;padding-bottom:0;}
+.next .row:first-child{padding-top:0;}
+.next .when{
+  font-size:11.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--red);min-width:92px;flex:none;padding-top:2px;
+}
+.next b{display:block;font-size:14.8px;margin-bottom:2px;}
+.next p{font-size:13.4px;color:var(--muted);line-height:1.52;}
+
+/* ---------- footer ---------- */
+footer{
+  margin-top:64px;border-top:1px solid var(--line);
+  padding:26px 0 44px;text-align:center;
+}
+footer p{font-size:13px;color:var(--muted);}
+footer .big{
+  font-family:'Playfair Display',serif;font-weight:900;font-size:19px;color:var(--ink);margin-bottom:6px;
+}
+footer .tiny{font-size:11.5px;opacity:.7;margin-top:10px;letter-spacing:.04em;}
+
+.hidden{display:none !important;}
+@media(max-width:560px){
+  .ev{padding:16px 16px;}
+  .timeline{padding-left:24px;}
+  .ev::before{left:-21px;}
+  .era::before{left:-21px;}
+  .next .row{flex-direction:column;gap:3px;}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="inner">
+    <div class="brand">The Daily <span>Smash</span></div>
+    <nav class="navlinks">
+      <a href="#timeline">Timeline</a>
+      <a href="#cast" data-opt>Cast</a>
+      <a href="#records" data-opt>Records</a>
+      <a href="#laws" data-opt>Laws</a>
+      <a href="#next">What's Next</a>
+      <button class="themebtn" id="theme" title="Toggle theme" aria-label="Toggle theme">◐</button>
+    </nav>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="eyebrow">Hyderabad · Est. Edition No. 194</div>
+    <h1>One net. Eleven suspects.<br><em>Zero matches settled.</em></h1>
+    <p>The complete archive of a friend group that started arguing about a badminton net and somehow ended up with an empress, a cartel, a chess champion and a dog in a party hat.</p>
+    <div class="scrawl">scroll slowly — it gets worse</div>
+
+    <div class="stats">
+      <div class="stat"><b>31</b><span>Editions filed</span></div>
+      <div class="stat"><b>12</b><span>Suspects</span></div>
+      <div class="stat"><b>847</b><span>Trip proposals</span></div>
+      <div class="stat"><b>108</b><span>Arey yaars</span></div>
+      <div class="stat"><b>0</b><span>Rematches played</span></div>
+    </div>
+  </header>
+
+  <section id="timeline">
+    <div class="shead">
+      <h2>The Timeline</h2>
+      <p>Everything that happened, in the order it happened, with photographic evidence where the group was careless enough to take some.</p>
+    </div>
+
+    <div class="filters" id="filters">
+      <button class="chip" aria-pressed="true" data-f="all">Everything</button>
+      <button class="chip" aria-pressed="false" data-f="badminton">🏸 Badminton</button>
+      <button class="chip" aria-pressed="false" data-f="cards">🃏 Cards</button>
+      <button class="chip" aria-pressed="false" data-f="food">🍽️ Food</button>
+      <button class="chip" aria-pressed="false" data-f="trips">✈️ Trips</button>
+      <button class="chip" aria-pressed="false" data-f="party">🎂 Parties</button>
+      <button class="chip" aria-pressed="false" data-f="scandal">🚨 Scandals</button>
+    </div>
+
+    <div class="timeline" id="tl">
+
+      <div class="era"><span>Act I · The Net Wars</span></div>
+
+      <article class="ev big" data-t="badminton scandal">
+        <div class="ev-top"><span class="date">The Beginning</span><span class="tag">Badminton</span><span class="edno">No. 194</span></div>
+        <h3>Sherry misses by four feet, blames the net</h3>
+        <p>The founding incident. One shot, four feet wide, and a sentence that started a civilisation. Measurements later confirmed the net at regulation height. It has never received an apology.</p>
+        <div class="quote">"Net thoda upar hai yaar."</div>
+      </article>
+
+      <article class="ev" data-t="badminton">
+        <div class="ev-top"><span class="date">Day 2–4</span><span class="tag">Badminton</span><span class="edno">No. 195–197</span></div>
+        <h3>The escalation: no net, no shuttle, then blindfolds</h3>
+        <p>Abhishek demanded a rematch with no net at all. Rahul and Amit countered with no net <em>and</em> no shuttle, backed by a fourteen-slide deck. Sumana and Pankhuri tabled Maram Patti — blindfolded, belt-based, entirely unhinged. Spectators were documented as "visibly confused."</p>
+      </article>
+
+      <article class="ev" data-t="cards">
+        <div class="ev-top"><span class="date">Day 5–9</span><span class="tag">Cards</span><span class="edno">No. 198–202</span></div>
+        <h3>Puja teaches the group Cabo. She regrets it immediately.</h3>
+        <p>Eleven minutes of instruction. Abhishek asked what a King does four separate times. The game then consumed everything, producing the constitutional clause that still governs every decision: <strong>"Cabo ke baad decide karte."</strong> Trips, dinners and proposals have died in that sentence.</p>
+        <figure>
+          <img src="img/cabo.jpg" alt="The group playing Cabo at a cafe table" loading="lazy">
+          <figcaption>six players, two phones, zero trust</figcaption>
+        </figure>
+      </article>
+
+      <div class="era"><span>Act II · The Rise of the Empress</span></div>
+
+      <article class="ev big" data-t="cards scandal">
+        <div class="ev-top"><span class="date">Sun, 26 Jul 2026</span><span class="tag">Cards</span><span class="edno">No. 204</span></div>
+        <h3>Champion warns Bluff Queen, immediately regrets it</h3>
+        <p>Sensing a trap, Cabo Champion Abhishek warned Sherry she'd made a mistake — based entirely on her face. Her face is fiction. Three rounds later he was holding half the deck and reconsidering everything.</p>
+        <div class="quote">"Ye galti kar diya apne."</div>
+        <p>The warning now hangs framed in her trophy room. It has been repeated an estimated 47 times since, mostly to furniture.</p>
+      </article>
+
+      <article class="ev" data-t="scandal">
+        <div class="ev-top"><span class="date">Mon, 27 Jul 2026</span><span class="tag">Scandal</span><span class="edno">No. 205</span></div>
+        <h3>Cleanliness God audited in absentia; claims "very exaggerated"</h3>
+        <p>Sherry, Avani and Rahul raided Rudra's residence while he was elsewhere. Even the Bluff Queen certified the verdict as "the one honest thing I'll say all year." His defence — that the house was inspected on a bad day — is now classified as the household equivalent of blaming the net.</p>
+      </article>
+
+      <article class="ev big" data-t="cards">
+        <div class="ev-top"><span class="date">Tue, 28 Jul 2026</span><span class="tag">Cards</span><span class="edno">No. 206</span></div>
+        <h3>Sherry crowned Empress of Bluff AND Cabo</h3>
+        <p>Four rounds, one empire. Final total of 4 while the rest of the field set fire to itself. Rudra was declared <em>non-existent</em> at the table while Abhishek played 80% of his game for him — the first recorded case of a man being outsourced in real time while sitting right there.</p>
+        <p>Rahul posted <strong>+35 in a single round</strong>, the worst in recorded history, now museum property.</p>
+      </article>
+
+      <div class="era"><span>Act III · Ice, Legislation & Betrayal</span></div>
+
+      <article class="ev" data-t="scandal">
+        <div class="ev-top"><span class="date">Sun, 2 Aug 2026</span><span class="tag">Scandal</span><span class="edno">No. 209</span></div>
+        <h3>Man vs Bucket. Bucket wins on points.</h3>
+        <p>Fresh off his +35 masterpiece, Rahul sought redemption via the Ice Bucket Challenge and lost to still water — the second time that month he was defeated by an inanimate object with better composure. He rebranded it "Goa ocean training," then later "canyon acclimatization."</p>
+        <figure>
+          <img src="img/bucket.jpg" alt="Ice bucket challenge" loading="lazy">
+          <figcaption>feet, seconds before they resigned</figcaption>
+        </figure>
+      </article>
+
+      <article class="ev" data-t="badminton">
+        <div class="ev-top"><span class="date">Aug 2026</span><span class="tag">Badminton</span><span class="edno">No. 209</span></div>
+        <h3>The Amit Clause enters law</h3>
+        <p>Following an incident under the Plastic Bat Act, Amit was sentenced to play <em>all</em> badminton games, permanently — the only punishment in history that doubles as a cardio programme. He complied silently. His knees filed an appeal. Appeal dismissed.</p>
+      </article>
+
+      <article class="ev" data-t="trips">
+        <div class="ev-top"><span class="date">Wed, 5 Aug 2026</span><span class="tag">Trips</span><span class="edno">No. 211</span></div>
+        <h3>Goa finalised, then deceased three days later</h3>
+        <p>After 847 proposals, one survived — and lasted 72 hours before Gandikota rose from the gorge. The planning committee's official statement: <em>"We didn't cancel Goa. Goa failed its probation period."</em> Standing legislation carried across both destinations: Sherry collects card-taxes en route, Avani's tea must flow during gameplay.</p>
+      </article>
+
+      <div class="era"><span>Act IV · The Kitchen Years</span></div>
+
+      <article class="ev big" data-t="food badminton">
+        <div class="ev-top"><span class="date">Thu, 6 Aug 2026</span><span class="tag">Food</span><span class="edno">No. 212</span></div>
+        <h3>Tea acquitted, chutney cleared of all charges</h3>
+        <p>Rudra produced tea so successful it partially restored his god status — the first claim of his career to survive independent inspection. Sumana's peanut chutney was declared genuinely excellent, the only objection being its colour, dismissed on the grounds that nobody has ever tasted a colour.</p>
+        <figure>
+          <img src="img/tea.jpg" alt="Rudra holding a tray of tea" loading="lazy">
+          <figcaption>the tea that cleared his name — four cups, zero complaints</figcaption>
+        </figure>
+        <p>On court the same day: Sherry crossed <strong>108 "arey yaar"s</strong> — the exact count of a sacred mala — Abhishek filed 40 wind reports from inside a sealed indoor hall, and Amit said nothing at all.</p>
+      </article>
+
+      <article class="ev" data-t="badminton food">
+        <div class="ev-top"><span class="date">Thu, 6 Aug 2026</span><span class="tag">Gurukul</span><span class="edno">No. 212</span></div>
+        <h3>The Gurukul opens: Avani enrols in everything</h3>
+        <p>Tea-making and badminton coaching from Rudra in a single day, making her the institution's first full-time student. One more subject and fees apply.</p>
+        <figure>
+          <img src="img/coach.jpg" alt="Coaching on the badminton court" loading="lazy">
+          <figcaption>Coach explains the theory. Student politely waits for a serve.</figcaption>
+        </figure>
+      </article>
+
+      <div class="era"><span>Act V · The Week Reality Switched Sides</span></div>
+
+      <article class="ev big" data-t="badminton scandal">
+        <div class="ev-top"><span class="date">Sun, 9 Aug 2026</span><span class="tag">Plot Twist</span><span class="edno">No. 215</span></div>
+        <h3>Rahul wins gold. Shilpee wins chess. Sherry runs a secret cafe.</h3>
+        <p>Four headlines this newspaper never expected to typeset. The man who lost to a bucket won an actual badminton tournament <em>and</em> booked the Goa hotel in the same week — two functioning achievements in seven days.</p>
+        <figure>
+          <img src="img/gold.jpg" alt="Rahul biting his gold medal" loading="lazy">
+          <figcaption>we checked the medal. twice.</figcaption>
+        </figure>
+        <p>Shilpee, mocked for months over perfect absence, was not absent. She was <em>training</em> — and won her company chess tournament outright. Our "Scandal Pending" rating was recalled. The scandal was competence.</p>
+        <figure>
+          <img src="img/trophy.jpg" alt="Chess tournament trophy" loading="lazy">
+          <figcaption>attendance: 0. trophies: 1. checkmate, all of us.</figcaption>
+        </figure>
+        <p>And field reporters in Gurgaon discovered why the Empress had skipped Cabo: a fully operational establishment named <strong>SHERRY'S — Cafe &amp; Community</strong>. She wasn't missing the game. She was franchising.</p>
+        <figure>
+          <img src="img/cafe.jpg" alt="Sherry's Cafe and Community signboard" loading="lazy">
+          <figcaption>"community" — bold word from the empire's tax department</figcaption>
+        </figure>
+      </article>
+
+      <article class="ev" data-t="cards">
+        <div class="ev-top"><span class="date">Aug 2026</span><span class="tag">Science</span><span class="edno">No. 215</span></div>
+        <h3>Man plays his own cards, wins — researchers baffled</h3>
+        <p>With Abhishek missing all week (officially office work, actually a five-day sleep attempt), Rudra faced Cabo alone for the first time — no cartel, no whispered guidance — and won. Compared by researchers to a man whose training wheels fell off mid-ride who, to everyone's horror, simply kept cycling.</p>
+      </article>
+
+      <div class="era"><span>Act VI · Goa Actually Happens</span></div>
+
+      <article class="ev big" data-t="trips">
+        <div class="ev-top"><span class="date">Mon, 17 Aug 2026</span><span class="tag">Trips</span><span class="edno">No. 216</span></div>
+        <h3>The trip happens. Then one message ends the holiday forever.</h3>
+        <p>Goa was long, glorious and fully enjoyed — the group's first ever event with zero recorded excuses about wind, light or nets. Everyone returned to Hyderabad intact. The holiday did not. Hours later Rudra, who had covered eleven editions of this trip without attending it, asked the group what the plan was for tomorrow.</p>
+        <div class="quote">"3 meals and office 😑"</div>
+        <p>Linguists note the genius: no complaint, no exaggeration, no lie. It simply names the two remaining features of adult existence and attaches the correct emoji. Someone tried to suggest a game night. It did not survive the sentence.</p>
+      </article>
+
+      <div class="era"><span>Act VII · Cake, Cartels & Convictions</span></div>
+
+      <article class="ev big" data-t="party cards">
+        <div class="ev-top"><span class="date">Sat, 22 Aug 2026</span><span class="tag">Birthday</span><span class="edno">No. 219</span></div>
+        <h3>Abhishek's birthday ends in a ceasefire signed in chocolate</h3>
+        <p>The man who once warned the Empress she'd made a mistake sat defenceless on a sofa while she advanced with frosting. Hands were folded in prayer. It did not work.</p>
+        <figure>
+          <img src="img/cake.jpg" alt="Birthday cake being fed" loading="lazy">
+          <figcaption>peace treaty signed in chocolate. hostilities suspended till Monday.</figcaption>
+        </figure>
+        <p>The night's real story happened away from the cake: Sherry tried to teach Rudra to shuffle (failed, cites "stepping stones"), while Rahul taught Abhishek to deal cards with studious technicality — and he <em>learnt it</em>, on his own birthday. The Gurukul quietly changed hands.</p>
+      </article>
+
+      <article class="ev" data-t="badminton">
+        <div class="ev-top"><span class="date">Mon, 24 Aug 2026</span><span class="tag">Badminton</span><span class="edno">No. 220</span></div>
+        <h3>Man spotted playing badminton alone; it's just Amit again</h3>
+        <p>Sentenced to play all games forever, Amit has apparently interpreted "all" to include the ones nobody else turns up for. The Act did not specify that opponents were required, and he has never been the type to look for loopholes.</p>
+        <figure>
+          <img src="img/alone.jpg" alt="One player alone on a badminton court" loading="lazy">
+          <figcaption>no opponent. no partner. no complaints.</figcaption>
+        </figure>
+      </article>
+
+      <article class="ev" data-t="badminton scandal">
+        <div class="ev-top"><span class="date">Wed, 26 Aug 2026</span><span class="tag">Scandal</span><span class="edno">No. 222</span></div>
+        <h3>The 11:15 shutdown: a sabotage disguised as civic duty</h3>
+        <p>Abhishek and Amit became the most destructive partnership the court has seen — opponents were not defeated so much as processed. Then, at exactly 11:15 pm, Puja and Sherry discovered a deep and sudden respect for closing time, rallied everyone off the court, supported CISF and won the guard's heart.</p>
+        <p>Investigators note the civic conscience arrived at <strong>11:14</strong>. The Empress declined to comment, which in this newspaper's experience is a confession.</p>
+      </article>
+
+      <div class="era"><span>Act VIII · Festival Season</span></div>
+
+      <article class="ev" data-t="food cards">
+        <div class="ev-top"><span class="date">Sept–Oct 2026</span><span class="tag">Cards</span><span class="edno">No. 217–218</span></div>
+        <h3>Four new games, zero badminton</h3>
+        <p>The court reopened to great fanfare and precisely nobody. Indoors, the group discovered poker, seep and judgement. Sherry and Rahul — historic enemies — merged into the group's first criminal enterprise and began systematically looting the table. Everyone learnt seep except Rudra, who after three games had taken to nodding at the right moments.</p>
+        <div class="quote">"Galti kar diya mein."</div>
+        <p>— Sherry, during seep, repeatedly. The same sentence, turned inward, at last. Scholars call it the most significant grammatical event in the group's history.</p>
+        <p>Puja beat Abhishek in her first ever game of judgement. Rudra won judgement by tweaking the rules — announced beforehand, agreed by everyone, entirely in his favour. This is not cheating. This is legislation.</p>
+      </article>
+
+      <article class="ev" data-t="food">
+        <div class="ev-top"><span class="date">Oct 2026</span><span class="tag">Food</span><span class="edno">Running</span></div>
+        <h3>The food archive expands</h3>
+        <p>Idly summit, litti chokha at Puja &amp; Amit's, Broadway puff pizza, late-night maggi and desserts. Every single item uncriticised — because the plates always came back empty. The maggi pot is now considered a member.</p>
+        <figure>
+          <img src="img/feast.jpg" alt="Group eating at a cafe table" loading="lazy">
+          <figcaption>after every war: the shawarma scene. carbs remain undefeated.</figcaption>
+        </figure>
+      </article>
+
+      <article class="ev big" data-t="party">
+        <div class="ev-top"><span class="date">Mon, 12 Oct 2026</span><span class="tag">Dasara</span><span class="edno">No. 223</span></div>
+        <h3>Group attempts garba; net, shuttle and deck all feel replaced</h3>
+        <p>Under four hundred fairy lights, the members discovered a sport where you cannot blame the wind, cannot amend the rules mid-game, and cannot attend as your own audience. Garba does not care who the Empress is.</p>
+        <figure>
+          <img src="img/garba.jpg" alt="Garba night under fairy lights" loading="lazy">
+          <figcaption>chappals off, phones down, two left feet fully deployed</figcaption>
+        </figure>
+        <p>Footwork split neatly along existing lines: those who clapped on the beat were the same people who bid on their actual cards.</p>
+      </article>
+
+      <article class="ev big" data-t="party cards">
+        <div class="ev-top"><span class="date">Wed, 15 Oct 2026</span><span class="tag">Birthday</span><span class="edno">No. 224</span></div>
+        <h3>Mafia kills Rudra before the game begins; God watches in silence</h3>
+        <p>Puja's birthday drew 11 of 12 — several seen together for the first time in years, Abhishek included, awake, with no mention of office work. The birthday girl was surprised in the modern sense: she knew, everyone knew she knew, and she performed surprise anyway, out of respect for the balloons.</p>
+        <figure>
+          <img src="img/bday.jpg" alt="The whole group at the birthday party" loading="lazy">
+          <figcaption>eleven humans, one golden retriever, zero suspicion — for now</figcaption>
+        </figure>
+        <p>Before a card was dealt, Rudra moved decisively into the core seat — comfortable, central, strategically unimpeachable — supported by Sherry. When the Empress endorses a land grab, the land has been grabbed.</p>
+        <figure>
+          <img src="img/puja.jpg" alt="Puja with the birthday dog" loading="lazy">
+          <figcaption>the only guest who didn't take sides all night</figcaption>
+        </figure>
+        <p>Then Mafia. Rudra was killed <em>before the game properly started</em>. Khyati — three weeks into this group — helped the Mafia win by invoking a side rule only veterans know exists. The Mafia had won within five minutes. God said nothing, let the village debate for sport, and the Mafia, unable to admit victory, were reduced to <strong>playing to lose</strong>.</p>
+        <div class="quote">"They had already won. Nobody told the village. The village kept voting."</div>
+        <p>Earlier that week: Rahul, Avani and Shilpee ran a full coaching session to teach Rudra garba steps — three instructors, one student, the same ratio previously required for card shuffling. He then invented the <strong>bulb-tap-cigarette step</strong>, which the team picked up cleaner than he performs it.</p>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="cast">
+    <div class="shead">
+      <h2>The Cast</h2>
+      <p>Twelve people, one net, and a remarkable commitment to never resolving anything.</p>
+    </div>
+    <div class="cast">
+      <div class="person">
+        <div class="nm">Sherry</div><div class="role">Empress · Bluff & Cabo</div>
+        <p>Started the year blaming a stationary net. Ends it holding two crowns, a framed threat, a secret cafe in Gurgaon and a religion built on "arey yaar."</p>
+        <div class="line">regulators are investigating the smile</div>
+      </div>
+      <div class="person">
+        <div class="nm">Abhishek</div><div class="role">Ex-Champion · Indoor Meteorologist</div>
+        <p>Two immortal lines: "ye galti kar diya apne" and "hawa aaj jyada hai" — the latter filed 40 times from inside a sealed building. Plays other people's hands better than his own, free of charge.</p>
+        <div class="line">once slept for five days, called it office work</div>
+      </div>
+      <div class="person">
+        <div class="nm">Rudra</div><div class="role">Nobel Laureate · Existence Disputed</div>
+        <p>House audited "very exaggerated." Declared non-existent mid-Cabo. Cannot shuffle. Cannot learn seep. Killed before a Mafia game started. Redeemed entirely by one tray of tea.</p>
+        <div class="line">owns this newspaper, which explains the tone</div>
+      </div>
+      <div class="person">
+        <div class="nm">Amit</div><div class="role">The Last Honest Man</div>
+        <p>Sentenced under the Plastic Bat Act to play every badminton game forever. Complied silently. Zero excuses across the entire archive. Plays alone when nobody turns up.</p>
+        <div class="line">an inquiry remains open into whether he understands the format</div>
+      </div>
+      <div class="person">
+        <div class="nm">Rahul</div><div class="role">Head of Planning · Gold Medallist</div>
+        <p>847 proposals, one success. Holder of the worst round in history (+35) and the only person to lose to a bucket of still water — then won an actual tournament and booked the Goa hotel.</p>
+        <div class="line">rebrand count: two and climbing</div>
+      </div>
+      <div class="person">
+        <div class="nm">Avani</div><div class="role">The Competence Desk</div>
+        <p>The only person who plays judgement sensibly — bids on her cards while everyone else bids on hope and revenge. Enrolled in two gurukul branches in one day. Her one law: tea during gameplay.</p>
+        <div class="line">everyone else is doing therapy; she's doing arithmetic</div>
+      </div>
+      <div class="person">
+        <div class="nm">Sumana</div><div class="role">Chef · Founder, "Are We Playing?"</div>
+        <p>Attended entire card games holding cards, receiving points, participating in nothing. Lost nothing. Her peanut chutney was cleared of all charges on merit.</p>
+        <div class="line">possibly the only one who understood the assignment</div>
+      </div>
+      <div class="person">
+        <div class="nm">Puja</div><div class="role">The Guru · Birthday Girl</div>
+        <p>Taught everyone Cabo in eleven minutes and unleashed all of this. Vanished to Sakleshpur for a week of confirmed shallow work. Beat Abhishek at judgement on debut. Author of the sentence that ended Goa.</p>
+        <div class="line">close enough to be invited, far enough to decline</div>
+      </div>
+      <div class="person">
+        <div class="nm">Shilpee</div><div class="role">Chess Champion</div>
+        <p>Mocked for months over perfect absence. Was not absent — was training. Won her company chess tournament outright while everyone else filed indoor wind reports.</p>
+        <div class="line">attendance 0, trophies 1</div>
+      </div>
+      <div class="person">
+        <div class="nm">Pankhuri</div><div class="role">The Sleeper</div>
+        <p>Co-filed the historic blindfold legislation, then went dark through empires, audits, buckets and coronations. Zero trades, zero losses, zero galtis.</p>
+        <div class="line">watching all of this from a safe distance</div>
+      </div>
+      <div class="person">
+        <div class="nm">Khyati</div><div class="role">The Quiet Danger</div>
+        <p>Lost her first Cabo game before finishing her introduction. Three weeks later, won Mafia for the opposing side using a side rule only veterans know. Then said nothing.</p>
+        <div class="line">silence is the weapon</div>
+      </div>
+      <div class="person">
+        <div class="nm">The Net</div><div class="role">Falsely Accused</div>
+        <p>Stood at regulation height. Was publicly blamed. Was formally vindicated by this paper. Has never received an apology from any party.</p>
+        <div class="line">remains at regulation height, purely out of spite</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="records">
+    <div class="shead">
+      <h2>Hall of Records</h2>
+      <p>Permanent exhibits. Appeals may be filed and will be ignored.</p>
+    </div>
+    <div class="records">
+      <div class="rec"><b>4 ft</b><div class="t">The Founding Miss</div><p>Distance the original shot missed by. The net was blamed. The net had not moved.</p></div>
+      <div class="rec"><b>108</b><div class="t">Longest Chant</div><p>"Arey yaar" in one session — exactly one mala. Now classified as a spiritual practice.</p></div>
+      <div class="rec"><b>+35</b><div class="t">Worst Round Ever</div><p>Rahul, one round. Unbeaten, unbreakable, framed in the corridor.</p></div>
+      <div class="rec"><b>80%</b><div class="t">Largest Outsourcing</div><p>Share of Rudra's card game played by Abhishek while Rudra sat there nodding.</p></div>
+      <div class="rec"><b>40</b><div class="t">Indoor Weather Reports</div><p>Wind conditions filed by Abhishek from inside a sealed building.</p></div>
+      <div class="rec"><b>847</b><div class="t">Proposals Filed</div><p>By Rahul, before one was approved. He then couldn't book a room for it.</p></div>
+      <div class="rec"><b>1–0</b><div class="t">Bucket vs Man</div><p>The bucket remains undefeated and has never offered an excuse.</p></div>
+      <div class="rec"><b>0:00</b><div class="t">Fastest Mafia Death</div><p>Rudra, killed before the game properly began. A record built to last.</p></div>
+      <div class="rec"><b>0</b><div class="t">Matches Settled</div><p>The original rematch has never been played. It never will be.</p></div>
+    </div>
+  </section>
+
+  <section id="laws">
+    <div class="shead">
+      <h2>The Laws of the Land</h2>
+      <p>Unwritten until now. Binding on everyone. Nobody remembers agreeing to any of them.</p>
+    </div>
+    <div class="laws">
+      <div class="law"><span class="n">1</span><div><b>Cabo ke baad decide karte</b><p>Any decision may be deferred indefinitely by invoking a card game that may never begin.</p></div></div>
+      <div class="law"><span class="n">2</span><div><b>The Amit Clause</b><p>Injure a player, play all games. Forever. Knees have no standing to appeal.</p></div></div>
+      <div class="law"><span class="n">3</span><div><b>The Beverage Clause</b><p>Tea must flow during gameplay. Passed unanimously, out of fear of Avani.</p></div></div>
+      <div class="law"><span class="n">4</span><div><b>The Travel Tax</b><p>Cards will be played en route to any destination. The Empress collects.</p></div></div>
+      <div class="law"><span class="n">5</span><div><b>Colour Is Not A Flavour</b><p>No dish may be criticised for how it looks if the plate came back empty.</p></div></div>
+      <div class="law"><span class="n">6</span><div><b>The Net Is Innocent</b><p>It was at regulation height. It always was. No apology has ever been issued.</p></div></div>
+      <div class="law"><span class="n">7</span><div><b>The Environment Has No Right Of Reply</b><p>Wind, light, chair height and the deck may be blamed freely and cannot defend themselves.</p></div></div>
+      <div class="law"><span class="n">8</span><div><b>Rule Tweaks Are Legislation</b><p>A rule changed before play and agreed by all is not cheating, however convenient it turns out to be.</p></div></div>
+    </div>
+  </section>
+
+  <section id="next">
+    <div class="shead">
+      <h2>What's Next</h2>
+      <p>Fixtures, rumours and pending legislation.</p>
+    </div>
+    <div class="next">
+      <div class="row">
+        <span class="when">Friday · 8 PM</span>
+        <div><b>Garba Night</b><p>Confirmed, timed, agreed. The bulb-tap-cigarette step makes its public debut. Attendance expected; excuses already being drafted.</p></div>
+      </div>
+      <div class="row">
+        <span class="when">Saturday</span>
+        <div><b>Mafia, Extended Edition</b><p>With silencer and suicide bomber. Requires 15 people. Not decided, not scheduled, not currently possible — but Khyati wants it, which historically means it will happen.</p></div>
+      </div>
+      <div class="row">
+        <span class="when">TBD</span>
+        <div><b>Box Cricket</b><p>Abhishek sponsoring the team, making him the first man to fund a defeat before it happens.</p></div>
+      </div>
+      <div class="row">
+        <span class="when">Never</span>
+        <div><b>The Original Rematch</b><p>Still unplayed. The net remains at regulation height and fully available.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p class="big">The Daily Smash</p>
+    <p>Satire desk · Hyderabad · All quotes verified, unlike Sherry's cards</p>
+    <p class="tiny">Established Edition No. 194 · Appeals ignored since day one</p>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  // theme toggle
+  var root = document.documentElement, btn = document.getElementById('theme');
+  var saved = null;
+  try { saved = localStorage.getItem('smash-theme'); } catch(e){}
+  if (saved) root.setAttribute('data-theme', saved);
+  btn.addEventListener('click', function(){
+    var cur = root.getAttribute('data-theme');
+    if (!cur) {
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      cur = prefersDark ? 'dark' : 'light';
+    }
+    var next = cur === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('smash-theme', next); } catch(e){}
+  });
+
+  // filters
+  var chips = document.querySelectorAll('#filters .chip');
+  var events = document.querySelectorAll('#tl .ev');
+  var eras = document.querySelectorAll('#tl .era');
+  chips.forEach(function(c){
+    c.addEventListener('click', function(){
+      chips.forEach(function(x){ x.setAttribute('aria-pressed','false'); });
+      c.setAttribute('aria-pressed','true');
+      var f = c.dataset.f;
+      events.forEach(function(ev){
+        var show = (f === 'all') || (ev.dataset.t || '').split(' ').indexOf(f) > -1;
+        ev.classList.toggle('hidden', !show);
+      });
+      eras.forEach(function(er){ er.classList.toggle('hidden', f !== 'all'); });
+    });
+  });
+
+  // gentle reveal
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){
+          e.target.style.opacity = 1;
+          e.target.style.transform = 'none';
+          io.unobserve(e.target);
+        }
+      });
+    }, {rootMargin:'0px 0px -40px 0px'});
+    events.forEach(function(ev){
+      ev.style.opacity = 0;
+      ev.style.transform = 'translateY(14px)';
+      ev.style.transition = 'opacity .5s ease, transform .5s ease';
+      io.observe(ev);
+    });
+  }
+})();
+</script>
+</body>
+</html>
